@@ -1,7 +1,11 @@
 #!/usr/bin/ruby
 require 'rubygems'
+# sudo gem install fleakr
 require 'fleakr'
-username = 'snarkhunt'
+username = 'YOUR_FLICKR_USERNAME'
+#if this stops working, no prob.  Go here:
+#http://www.flickr.com/services/api/keys/apply/
+#get a new key, put it right here
 Fleakr.api_key = 'ff49d13c700dc4942fd7bdfe6f24ab61'
 def process_photos(photos,dir,title,description,size,photo_ids_to_exclude)
   puts "processing " + title
