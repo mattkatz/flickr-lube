@@ -35,7 +35,7 @@ end
 
 
 # Find a user
-user = Fleakr.user('snarkhunt')
+user = Fleakr.user(username)
 photos_in_sets = []
 # save each set to a folder 
 user.sets.each do | set|
