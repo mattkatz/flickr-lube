@@ -9,10 +9,23 @@ rescue LoadError
   exit
 end
 begin 
-  require 'fleakr'
+  gemnames = ['fleakr']
+  gemnames.each do |gname|
+	require gname
+  end
 rescue LoadError
   puts "Flickr Lube uses Fleakr to get things greased up. Try 'sudo gem install fleakr' and then put some nice music on."
   puts "If your system doesn't let you sudo, http://rubygems.org/read/chapter/3#page83 has instructions on getting around that.  This will be worth it." 
+  puts "Do you want this script to try to install the gems for you? (y/n):"
+  if gets.chomp.downcase == 'y' 
+    require 'rubygems/dependency_installer'
+    installer = Gem::DependencyInstaller.new
+    gemnames.push 'builder'
+    gemnames.each do |gname|
+      installer.install(gname) 
+    end
+  end
+  puts "If everything installed fine, you should be able to run the script now"
   exit
 end
 #if this stops working, no prob.  Go here:
