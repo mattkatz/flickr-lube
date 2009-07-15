@@ -22,7 +22,7 @@ def process_photos(photos,dir,title,description,size,photo_ids_to_exclude)
     unless image.nil?
       prefix = sprintf(template,(index+1))
       image.save_to(dir,prefix)
-      images[prefix+image.filename] = {'title' => photo.title, 'desc' => photo.description}
+      images[prefix+image.filename] = {'title' => photo.title, 'desc' => photo.description.gsub("\n",'<br/>')}
       processed_ids.push(photo.id)
     end
   end
