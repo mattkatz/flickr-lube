@@ -1,8 +1,20 @@
 #!/usr/bin/ruby
-require 'rubygems'
-# sudo gem install fleakr
-require 'fleakr'
+#stick yours in here.
 username = 'YOUR_FLICKR_USERNAME'
+begin
+  require 'rubygems'
+rescue LoadError
+  puts "Flickr Lube needs RubyGems installed on your server to continue, and we can't find it."
+  puts 'See http://rubygems.org for installation instructions'
+  exit
+end
+begin 
+  require 'fleakr'
+rescue LoadError
+  puts "Flickr Lube uses Fleakr to get things greased up. Try 'sudo gem install fleakr' and then put some nice music on."
+  puts "If your system doesn't let you sudo, http://rubygems.org/read/chapter/3#page83 has instructions on getting around that.  This will be worth it." 
+  exit
+end
 #if this stops working, no prob.  Go here:
 #http://www.flickr.com/services/api/keys/apply/
 #get a new key, put it right here
